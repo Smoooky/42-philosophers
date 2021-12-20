@@ -64,10 +64,6 @@ int	init(t_env *env, int argc, char const **argv)
 		env->to_end_count = ft_atoi(argv[5]);
 	else
 		env->to_end_count = 0;
-	if (env->amount < 2 || env->amount > 200 || env->to_die < 60
-		|| env->to_eat < 60 || env->to_sleep < 60
-		|| env->to_end_count < 0)
-		return (1);
 	env->forks_s = NULL;
 	env->philos = (t_philo *)malloc(sizeof(*(env->philos)) * env->amount);
 	if (!(env->philos))

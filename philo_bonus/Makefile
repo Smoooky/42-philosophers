@@ -1,4 +1,4 @@
-NAME = philo
+NAME = philo_bonus
 FLAGS = -Wall -Wextra -Werror
 OBJS =	main.o\
     	init.o\

@@ -60,18 +60,12 @@ static char	*get_message(int type)
 
 void	display_message(t_philo *philo, int type)
 {
-	static int	done = 0;
-
 	pthread_mutex_lock(&philo->env->write_m);
-	if (!done)
-	{
-		ft_putnbr_fd(get_time() - philo->env->start, 1);
-		write(1, " ", 1);
-		if (type != TYPE_OVER)
-			ft_putnbr_fd(philo->id + 1, 1);
-		if (type >= TYPE_DIED)
-			done = 1;
-		write(1, get_message(type), ft_strlen(get_message(type)));
-	}
-	pthread_mutex_unlock(&philo->env->write_m);
+	ft_putnbr_fd(get_time() - philo->env->start, 1);
+	write(1, " ", 1);
+	if (type != TYPE_OVER)
+		ft_putnbr_fd(philo->id + 1, 1);
+	write(1, get_message(type), ft_strlen(get_message(type)));
+	if (type < TYPE_DIED)
+		pthread_mutex_unlock(&philo->env->write_m);
 }

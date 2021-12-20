@@ -96,5 +96,5 @@ unsigned long long	get_time(void)
 	static struct timeval	tv;
 
 	gettimeofday(&tv, NULL);
-	return ((tv.tv_sec * (uint64_t)1000) + (tv.tv_usec / 1000));
+	return ((tv.tv_sec * (unsigned long long)1000) + (tv.tv_usec / 1000));
 }
